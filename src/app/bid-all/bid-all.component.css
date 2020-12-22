@@ -1,0 +1,4 @@
+.center {
+  display: flex-column;
+  justify-content: center;
+}

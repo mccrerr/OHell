@@ -1,0 +1,32 @@
+<form  [formGroup] = "inputForm" style = "margin: 5px 40px;
+  width:500px" class = "center">
+  <div style = "display: flex; height: 40px; margin-top:50px">
+    <output>Enter Players in Order Around Table</output>
+  </div>
+  <mat-form-field>
+    <input #Name formControlName="Name" placeholder="Name" cdkFocusInitial
+    matInput type="text" (change) = "NameChange($event)" autofocus cdkTrapFocus
+    cdkTrapFocusAutoCapture="true" (keydown) = "keyD($event)" style= "align-self: center">
+  </mat-form-field>
+  </form>
+
+  <div *ngFor = "let item of scoreService.players"
+  style = "margin: 5px 40px; align-self: center;
+  width: 500px" class = "center">
+    <output style=" margin-right: 50px">{{item.player}}</output>
+    <output>{{item.position}}</output>
+
+  </div>
+
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)"
+  style = "margin: 5px 40px; align-self: center;
+  width: 500px" class = "center" >
+    <div class="example-box" *ngFor="let item of scoreService.players" cdkDrag
+    (dblclick) = 'deleteItm($event)'>
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      {{item.player}}
+    </div>
+  </div>
+
+
+  <!-- <button (click)="viewPlayer()">players</button> -->

@@ -1,0 +1,45 @@
+<!-- <form class="example-form" style = "margin: 50px">
+  <mat-form-field >
+    <mat-label>BID</mat-label>
+    <input matInput type="number" #message maxlength="256" placeholder="Enter Bid">
+    <mat-hint align="start"><strong>Enter Bid</strong> </mat-hint>
+    <mat-hint align="end"></mat-hint>
+  </mat-form-field>
+</form> -->
+<form  [formGroup] = "inputForm" style = "margin: 5px 40px;
+  width:500px" class = "center">
+  <div class = "center"  fxLayout="row" fxLayoutGap="10px">
+    <div style = "height: 90px;" >
+      <output style = "display: flex; height: 90px;
+       align-items: center;">{{10 - round.id}} Cards</output>
+    </div>
+    <div >
+      <label style="align-self: center" >Bid</label><br>
+      <input formControlName="bid" style="height:50px; width:65px;
+      font-size: 40px; align-self: center"
+      type = number min = "0" max = "10">
+    </div>
+    <div >
+      <label style="align-self: center" >Score</label><br>
+      <input [attr.disabled] = "bid === null ? true : null"
+        formControlName="score" style="height:50px;
+        width:65px; font-size: 40px; align-self: center"
+        type = number  min = "0" max = "10" >
+    </div>
+    <div >
+      <label style="align-self: center" >Points</label><br>
+      <input formControlName="points" style="height:50px;
+      width:65px; font-size: 40px;
+      align-self: center" readonly = true
+      type = number  min = "0" max = "10">
+    </div>
+    <div >
+      <label style="align-self: center" >Total</label><br>
+      <input formControlName="game" style="height:50px;
+      width:65px; font-size: 40px;
+      align-self: center" readonly = true
+      type = number  min = "0" max = "200">
+    </div>
+  </div>
+</form>
+

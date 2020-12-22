@@ -1,0 +1,20 @@
+<div class="center" style = "margin: 10px 200px;
+width:500px">
+  <mat-form-field appearance="fill">
+    <mat-label>Choose Your Name</mat-label>
+    <mat-select [value]="curPlayer"
+      (selectionChange) = "playerChg($event)">
+      <mat-option *ngFor="let player of scoreService.players"
+      [value]="player.player">
+        {{player.player}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div *ngIf = "curPlayer.length">
+  <div *ngFor = "let item of this.playerRounds" >
+    <app-bid [round] ="item"></app-bid>
+  </div>
+</div>
+
